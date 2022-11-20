@@ -10,12 +10,11 @@ const daysRef = document.querySelector('[data-days]');
 const hoursRef = document.querySelector('[data-hours]');
 const minsRef = document.querySelector('[data-minutes]');
 const secRef = document.querySelector('[data-seconds]');
-// const currentDate = new Date();
+
 let selectedDate;
 
-console.log(inputRef);
-
 startBtnRef.disabled = true;
+console.dir(startBtnRef);
 
 const options = {
   enableTime: true,
@@ -23,11 +22,11 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    if (selectedDates[0] < options.defaultDate) {
+    if (selectedDates[0] <= options.defaultDate) {
       Notiflix.Notify.failure('Please choose a date in the future');
     } else {
       Notiflix.Notify.success('Date is chosen');
-      console.log(selectedDates[0]);
+
       startBtnRef.disabled = false;
       selectedDate = selectedDates[0];
     }
@@ -38,16 +37,14 @@ flatpickr(inputRef, options);
 
 startBtnRef.addEventListener('click', onBtnClick);
 function onBtnClick() {
-  // console.log('click');
   const intervalId = setInterval(() => {
     let difference = selectedDate - new Date();
-    // const onTime = new Date;
-    // console.log(convertMs(difference));
+
     if (difference < 0) {
       clearInterval(intervalId);
       return;
     }
-
+    console.log(convertMs(difference));
     renderTimer(convertMs(difference));
   }, 1000);
 }
