@@ -18,9 +18,9 @@ formRef.addEventListener('submit', onStartPromiseCreate);
 
 function onStartPromiseCreate(event) {
   event.preventDefault();
-  const amount = Number(form.elements.amount.value);
-  const step = Number(form.elements.step.value);
-  let delay = Number(form.elements.delay.value);
+  const amount = Number(formRef.elements.amount.value);
+  const step = Number(formRef.elements.step.value);
+  let delay = Number(formRef.elements.delay.value);
 
   for (let i = 1; i <= amount; i += 1) {
     createPromise(i, delay)
@@ -38,7 +38,6 @@ function onStartPromiseCreate(event) {
   }
   event.target.reset();
 }
-
 // ==========================start=============================================================
 // function createPromise(position, delay) {
 //   const shouldResolve = Math.random() > 0.3;
