@@ -14,7 +14,6 @@ const secRef = document.querySelector('[data-seconds]');
 let selectedDate;
 
 startBtnRef.disabled = true;
-console.dir(startBtnRef);
 
 const options = {
   enableTime: true,
