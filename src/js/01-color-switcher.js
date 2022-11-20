@@ -11,7 +11,6 @@ function onBtnStartClick() {
   switchBtnStatus();
 
   intervalId = setInterval(changeColor, 1000);
-  console.log(intervalId);
 }
 
 function changeColor() {
