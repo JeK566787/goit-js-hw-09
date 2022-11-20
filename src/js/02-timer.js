@@ -43,7 +43,6 @@ function onBtnClick() {
       clearInterval(intervalId);
       return;
     }
-    console.log(convertMs(difference));
     renderTimer(convertMs(difference));
   }, 1000);
 }
@@ -53,10 +52,6 @@ function renderTimer(timerObject) {
   hoursRef.textContent = addLeadingZero(timerObject.hours);
   minsRef.textContent = addLeadingZero(timerObject.minutes);
   secRef.textContent = addLeadingZero(timerObject.seconds);
-}
-
-function addLeadingZero(value) {
-  return value.toString().padStart(2, '0');
 }
 
 function convertMs(ms) {
