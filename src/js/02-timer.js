@@ -38,7 +38,8 @@ flatpickr(inputRef, options);
 
 startBtnRef.addEventListener('click', onBtnClick);
 function onBtnClick() {
-  // console.log('click');
+  startBtnRef.disabled = true;
+  inputRef.disabled = true;
   const intervalId = setInterval(() => {
     let difference = selectedDate - new Date();
     // const onTime = new Date;
